@@ -1,7 +1,9 @@
-<h1>Categories Index</h1>
-<ul>
-<% @categories.each do |category| %>
-<li><%= link_to category.title, category_path(category) %></li>
-<% end %>
-</ul>
+<div class="gradient-container">
+
+
+  <h1>Categories Index</h1>
+    <% @categories.each do |category| %>
+    <div class="card-category"><div class="btn-category-black"> <%= link_to category.title, category_path(category) %></div></div>
+    <% end %>
+</div>
 

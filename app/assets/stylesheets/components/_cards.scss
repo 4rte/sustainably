@@ -1,11 +1,16 @@
 .card-category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 383px;
   height: 113.44px;
   // position: absolute;
   // left: 14px;
   // top: 190px;
+  margin-bottom: 25px;
   border-radius: 15px;
   background-opacity: 70%;
+  background-image: url("https://s3-alpha-sig.figma.com/img/b422/5173/89a8e072b1aeac8d2019e3c54cbd00b2?Expires=1607299200&Signature=Y8eQFw38UnePcpRVDVDHTPxs83jxD~eeEMkwfAz69Jr9Mb2Erl4OdR1U2bxlZdQjeFxB6dPWGfO1hV2NvF-I8phLaWOFK5QVv~dVp2jiBXFZkjfTFqzFa1nLpvIrGjtG9~Sk14Adj1wgeMc8SmaLWhFebZsoP1JfQRNkDpkN3ODrTYpi9zmcYKMh-V~qzXl4Qfrqm0vgiHzKoJ3k7tD5Sj5rqNeitMBE5oSBS0~LG9pPR6BchbgcqlTLwLP4HK4cAzvKJVG8f8~ETHY~Do4Um6TH2~U0gMEGfGomm2px-cOoM6~FJ-XC6E~Upp0i~eO5z~4g6FAK3D2CuBvvTg8muA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA");
 }
 
 .card-cover-subcategory {
@@ -14,12 +19,21 @@
   // align-items: center;
   border-radius: 15px;
   background-opacity: 70%;
-  width: 380px;
-  height: 213px;
+  width: 90%;
+  height: 100%;
   // left: 11px;
   // top: 127px;
   // position: absolute;
-  // background: url(andrej-lisakov-Yy4sN6QzboU-unsplash.jpg);
+  background-image: url("https://s3-alpha-sig.figma.com/img/b422/5173/89a8e072b1aeac8d2019e3c54cbd00b2?Expires=1607299200&Signature=Y8eQFw38UnePcpRVDVDHTPxs83jxD~eeEMkwfAz69Jr9Mb2Erl4OdR1U2bxlZdQjeFxB6dPWGfO1hV2NvF-I8phLaWOFK5QVv~dVp2jiBXFZkjfTFqzFa1nLpvIrGjtG9~Sk14Adj1wgeMc8SmaLWhFebZsoP1JfQRNkDpkN3ODrTYpi9zmcYKMh-V~qzXl4Qfrqm0vgiHzKoJ3k7tD5Sj5rqNeitMBE5oSBS0~LG9pPR6BchbgcqlTLwLP4HK4cAzvKJVG8f8~ETHY~Do4Um6TH2~U0gMEGfGomm2px-cOoM6~FJ-XC6E~Upp0i~eO5z~4g6FAK3D2CuBvvTg8muA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 30px;
 
 }
 
@@ -37,9 +51,11 @@
 }
 
 .card-show-overview img {
-  height: 100%;
+  height: 90%;
   width: 120px;
+  margin-left: 5px;
   object-fit: cover;
+  border: 1px solid black;
 }
 
 .card-show-overview h2 {
