@@ -19,9 +19,13 @@ seed_category_1 = Category.new title: "Fashion"
   sub_category_1 = SubCategory.new title: "Clothes"
   sub_category_1.category = seed_category_1
   sub_category_1.save
+  business = Business.create(name: 'Humana')
+  BusinessSubCategory.create(business: business, sub_category: sub_category_1)
+
     sub_category_2 = SubCategory.new title: "Sportswear"
     sub_category_2.category = seed_category_1
     sub_category_2.save
+    BusinessSubCategory.create(business: business, sub_category: sub_category_2)
       sub_category_3 = SubCategory.new title: "Shoes"
       sub_category_3.category = seed_category_1
       sub_category_3.save

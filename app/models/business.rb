@@ -1,5 +1,5 @@
 class Business < ApplicationRecord
-  belongs_to :category
   has_many :reviews
-  has_many :sub_categories, through: :categories
+  has_many :business_sub_categories
+  has_many :sub_categories, through: :business_sub_categories
 end
