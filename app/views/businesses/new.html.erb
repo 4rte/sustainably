@@ -1,7 +1,12 @@
 <div class="container">
   <%= simple_form_for @business do |f| %>
     <%= f.input :name %>
-    <%#= f.input :category, :collection => ['Fashion', 'Finance','Travel','Energy', 'Food', 'Home'] %>
+    <%#= f.simple_fields_for :business_sub_categories do |b| %>
+    <%#= b.hidden_field :business_id, value: f.object.id %>
+    <%# end %>
+    <%= f.input :sub_category_ids, as: :select, label: "Choose sub categories", collection: SubCategory.order(:title), label_method: :title, input_html: {multiple: true}, include_hidden: false %>
+    <%#= f.association :sub_category %>
+    <%#= f.input :category, collection: Category.all  %>
     <%#= f.input :sub_category %>
     <%= f.input :description %>
     <%= f.input :address %>
