@@ -1,4 +1,4 @@
-<h1>Business Show Page</h1>
+<!-- <h1>Business Show Page</h1>
 <%= @business.name %>
 
 <h2>What other people say about </br> <%= @business.name %></h2>
@@ -22,4 +22,23 @@
   <%= f.input :content, as: :text %>
   <%= f.input :rating, as: :integer%>
   <%= f.submit %>
-<% end %>
+<% end %> -->
+
+<div class="gradient-container">
+  <div class="card-profile text-center">
+    <h1><%= @business.name %></h1>
+    <p><%= @business.description %></p>
+    <div class="btn-main">Visit Shop</div>
+  </div>
+  <div class="card-review-overview">
+    <div class="card-review-left-user-div">
+      <img src="https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5a33f2b431358e749fd321af%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D0%26cropX2%3D416%26cropY1%3D0%26cropY2%3D416" alt="humana">
+      <a href="#">Link to all users-reviews</a>
+    </div>
+    <div class="card-review-overview-infos">
+      <h2>Emmanuella-Katharina</h2>
+      <p>This is a second hand shop for clothes and accessories (Men, women, children</p>
+      <p style="text-align: right">rating</p>
+    </div>
+  </div>
+</div>
