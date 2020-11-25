@@ -1,5 +1,4 @@
 class Category < ApplicationRecord
-  has_many :sub_categories
-  has_many :businesses
+  has_many :sub_categories, dependent: :destroy
   validates :title, presence: true
 end
