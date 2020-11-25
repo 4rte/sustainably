@@ -27,8 +27,16 @@ class BusinessesController < ApplicationController
     # raise
     if current_user.admin?
       @business = Business.new(business_params)
+      # @sub_category = SubCategory.find(params[:business][:business_sub_categories][:sub_category_ids])
+      sub_categories = params.dig(:business, :sub_category_ids)
+      # raise
+      # @business = Business.joins(:business_sub_categories).create_with(business_sub_categories: { sub_category: @sub_category })
+      # raise
       if @business.save
-        raise
+        sub_categories.each do |sub_category_id|
+          BusinessSubCategory.create(business: @business, sub_category_id: sub_category_id)
+        end
+        # raise
         redirect_to @business, notice: "Tool was successfully added"
       else
         render :new
@@ -37,6 +45,9 @@ class BusinessesController < ApplicationController
   end
 
   def business_params
-    params.require(:business).permit(:name, :description, :address)
+    params.require(:business).permit(:name, :description, :address, business_sub_category_attributes: [:sub_category_id, :business_sub_category_id],
+      sub_category_ids: [] )
   end
 end
+
+
