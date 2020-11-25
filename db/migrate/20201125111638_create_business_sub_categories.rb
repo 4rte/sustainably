@@ -1,6 +1,6 @@
-class CreateBusinessesSubCategories < ActiveRecord::Migration[6.0]
+class CreateBusinessSubCategories < ActiveRecord::Migration[6.0]
   def change
-    create_table :businesses_sub_categories do |t|
+    create_table :business_sub_categories do |t|
       t.references :business, null: false, foreign_key: true
       t.references :sub_category, null: false, foreign_key: true
 

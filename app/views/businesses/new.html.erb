@@ -1,11 +1,11 @@
 <div class="container">
   <%= simple_form_for @business do |f| %>
     <%= f.input :name %>
-    <%= f.input :category, :collection => ['Fashion', 'Finance','Travel','Energy', 'Food', 'Home'] %>
+    <%#= f.input :category, :collection => ['Fashion', 'Finance','Travel','Energy', 'Food', 'Home'] %>
     <%#= f.input :sub_category %>
     <%= f.input :description %>
     <%= f.input :address %>
     <%#= f.input :photo, as: :file %>
-    <%= f.button :submit %>
+    <%= f.submit %>
   <% end %>
 </div>
