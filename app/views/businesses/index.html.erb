@@ -22,7 +22,7 @@
         <% end %>
         <div class="card-show-overview-infos">
           <h2><%= business.name %></h2>
-          <p><%= "#{business.description.first(100)} ..." %></p>
+          <p><%= business.description.truncate(100, separator: ' ') %></p>
           <p style="text-align: right">rating</p>
         </div>
       </div>
