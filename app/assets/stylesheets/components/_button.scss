@@ -9,8 +9,8 @@
   box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
   font-family: 'Josefin Sans', sans-serif;
   font-size: 26px;
-  width: 291px;
-  height: 52px;
+  width: 252px;
+  height: 43px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   padding-top: 5px;
@@ -21,6 +21,36 @@
 
 .btn-category-black a {
   color: white;
+  text-decoration: none;
+}
+
+
+.btn-subcategory-white {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border: solid 1px black;
+  border-radius: 6px;
+  box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+  font-family: 'Josefin Sans', sans-serif;
+  font-style: normal;
+  font-size: 20px;
+  width: 244px;
+  height: 43px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding-top: 5px;
+  // left: 62px;
+  // top: 221px;
+  // position: absolute;
+}
+
+.btn-subcategory-white a {
+  color: black;
+  text-decoration: none;
 }
 
 .btn-submit {
