@@ -29,10 +29,16 @@ import { initStarRating } from '../plugins/init_star_rating';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import { initMapbox } from '../plugins/init_mapbox';
 
 document.addEventListener('turbolinks:load', () => {
   initStarRating();
   // Call your functions here, e.g:
   // initSelect2();
 });
+
+
+document.addEventListener('turbolinks:load', () => {
+  initMapbox();
+})
 
