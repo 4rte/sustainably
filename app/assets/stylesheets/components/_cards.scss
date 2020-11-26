@@ -1,9 +1,32 @@
+.card-review {
+  width: 364px;
+  /* background-color: white; */
+  border: 1px solid black;
+  padding: 15px;
+  margin-top: 2vh;
+  border-radius: 10px;
+}
 .card-category {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 350px;
+  width: 330px;
   height: 93px;
+  // position: absolute;
+  // left: 14px;
+  // top: 190px;
+  margin-bottom: 25px;
+  border-radius: 15px;
+  background-opacity: 70%;
+  background-image: url("https://s3-alpha-sig.figma.com/img/b422/5173/89a8e072b1aeac8d2019e3c54cbd00b2?Expires=1607299200&Signature=Y8eQFw38UnePcpRVDVDHTPxs83jxD~eeEMkwfAz69Jr9Mb2Erl4OdR1U2bxlZdQjeFxB6dPWGfO1hV2NvF-I8phLaWOFK5QVv~dVp2jiBXFZkjfTFqzFa1nLpvIrGjtG9~Sk14Adj1wgeMc8SmaLWhFebZsoP1JfQRNkDpkN3ODrTYpi9zmcYKMh-V~qzXl4Qfrqm0vgiHzKoJ3k7tD5Sj5rqNeitMBE5oSBS0~LG9pPR6BchbgcqlTLwLP4HK4cAzvKJVG8f8~ETHY~Do4Um6TH2~U0gMEGfGomm2px-cOoM6~FJ-XC6E~Upp0i~eO5z~4g6FAK3D2CuBvvTg8muA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA");
+}
+
+.card-subcategory {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 293px;
+  height: 86px;
   // position: absolute;
   // left: 14px;
   // top: 190px;
@@ -20,7 +43,6 @@
   border-radius: 15px;
   background-opacity: 70%;
   width: 90%;
-  height: 100%;
   // left: 11px;
   // top: 127px;
   // position: absolute;
@@ -30,10 +52,7 @@
   align-items: center;
   text-align: center;
   justify-content: center;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 20px;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
 
 }
 
@@ -49,11 +68,12 @@
   border: 1px solid black;
   box-sizing: border-box;
   border-radius: 10px;
+  margin-top: 2vh;
 }
 
 .card-show-overview img {
   height: 90%;
-  width: 120px;
+  width: 30%;
   margin-left: 5px;
   object-fit: cover;
   border: 1px solid black;
@@ -64,6 +84,7 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  color: black;
 }
 
 .card-show-overview p {
@@ -72,14 +93,17 @@
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+  color: black;
 }
 
 .card-show-overview .card-show-overview-infos {
   padding: 16px;
+  margin-top: 8px;
+
 }
 
 .card-profile {
-  border: 3px solid black;
+  // border: 3px solid black;
 // position: absolute;
 // width: 389px;
 // height: 592.09px;
@@ -120,6 +144,7 @@
   border: 1px solid black;
   box-sizing: border-box;
   margin-top: 14px;
+  border-radius: 10px;
 }
 
 .card-review-overview img {
@@ -163,4 +188,10 @@
   width: 47%;
   text-decoration: underline;
   color: black;
+}
+
+.br-widget {
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
