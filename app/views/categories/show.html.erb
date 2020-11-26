@@ -26,7 +26,7 @@
       <div class="header-category"> <%= @category.title %> </div>
       <div class= "header-category-description">Explore the world of sustainable fashion. Write reviews andshop with a conscience</div>
       <div class="text-center">
-        <div class="btn-explore"><%= link_to "Explore", category_sub_categories_path(@category) %></div>
+        <%= link_to "Explore", category_sub_categories_path(@category), class: "btn-explore" %>
       </div>
     </div>
     <div><p>placeholder for carousel</p></div>
