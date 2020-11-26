@@ -10,6 +10,6 @@
 
   <h1>Sub categories Index</h1>
     <% @sub_categories.each do |sub_category| %>
-    <div class="card-category"><div class="btn-category-black"> <%= link_to sub_category.title, businesses_path(sub_category) %></div></div>
+    <div class="card-category"><div class="btn-category-black"> <%= link_to sub_category.title, businesses_path(params: {sub_category_id: sub_category.id}) %></div></div>
     <% end %>
 </div>

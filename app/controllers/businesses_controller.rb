@@ -8,6 +8,7 @@ class BusinessesController < ApplicationController
       @businesses = Business.joins(:business_sub_categories).where(business_sub_categories: { sub_category: @sub_category })
     else
       @businesses = Business.all
+      # raise
     end
   end
 
