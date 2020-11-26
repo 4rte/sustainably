@@ -48,15 +48,15 @@
     <% @business.reviews.each do |review| %>
       <div class="card-review-overview">
         <div class="card-review-left-user-div">
-          <% if @user.photo.attached? %>
-          <%= cl_image_tag @user.photo.key, width: 400, crop: :fill %>
+          <% if review.user.photo.attached? %>
+          <%= cl_image_tag review.user.photo.key, width: 400, crop: :fill %>
           <% else %>
-          <img src="https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5a33f2b431358e749fd321af%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D0%26cropX2%3D416%26cropY1%3D0%26cropY2%3D416" alt="humana">
+          <img src="https://www.flaticon.com/svg/static/icons/svg/1077/1077114.svg" alt="profile_pic">
           <% end %>
           <a href="#">Link to all users-reviews</a>
         </div>
         <div class="card-review-overview-infos">
-          <h2>User</h2>
+          <h2><%= review.user.first_name %></h2>
           <p><%= review.content %></p>
           <p style="text-align: right"><span class="badge badge-primary badge-pill">
             <% counter = 0 %>
