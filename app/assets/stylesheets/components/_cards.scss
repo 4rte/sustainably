@@ -2,8 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 383px;
-  height: 113.44px;
+  width: 350px;
+  height: 93px;
   // position: absolute;
   // left: 14px;
   // top: 190px;
@@ -48,6 +48,7 @@
   align-items: center;
   border: 1px solid black;
   box-sizing: border-box;
+  border-radius: 10px;
 }
 
 .card-show-overview img {
@@ -56,6 +57,7 @@
   margin-left: 5px;
   object-fit: cover;
   border: 1px solid black;
+  border-radius: 10px;
 }
 
 .card-show-overview h2 {
