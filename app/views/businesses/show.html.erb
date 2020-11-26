@@ -30,9 +30,17 @@
     <p><%= @business.description %></p>
     <div class="btn-main">Visit Shop</div>
   </div>
+  <div id="map"
+    style="width: 50vw; height: 350px;"
+    data-markers="<%= @marker.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   <div class="card-review-overview">
     <div class="card-review-left-user-div">
+      <% if @user.photo.attached? %>
+      <%= cl_image_tag @user.photo.key, width: 400, crop: :fill %>
+      <% else %>
       <img src="https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5a33f2b431358e749fd321af%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D0%26cropX2%3D416%26cropY1%3D0%26cropY2%3D416" alt="humana">
+      <% end %>
       <a href="#">Link to all users-reviews</a>
     </div>
     <div class="card-review-overview-infos">

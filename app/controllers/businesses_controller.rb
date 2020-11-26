@@ -5,7 +5,7 @@ class BusinessesController < ApplicationController
     if params[:sub_category_id].present?
       @sub_category = SubCategory.find(params[:sub_category_id])
       # raise
-      @businesses = Business.joins(:business_sub_categories).where(business_sub_categories: { sub_category: @sub_category })
+      @businesses = Business.joins(:business_sub_categories).where(business_sub_categories: { sub_category: @sub_category }).distinct
     else
       @businesses = Business.all
       # raise
@@ -15,6 +15,11 @@ class BusinessesController < ApplicationController
   def show
     @business = Business.find(params[:id])
     @review = Review.new
+    @user = current_user
+    # raise
+    @marker = [{lat: @business.latitude,
+    lng: @business.longitude}
+    ]
   end
 
   def new
@@ -38,7 +43,7 @@ class BusinessesController < ApplicationController
           BusinessSubCategory.create(business: @business, sub_category_id: sub_category_id)
         end
         # raise
-        redirect_to @business, notice: "Tool was successfully added"
+        redirect_to @business, notice: "Business was successfully added"
       else
         render :new
       end
@@ -46,7 +51,7 @@ class BusinessesController < ApplicationController
   end
 
   def business_params
-    params.require(:business).permit(:name, :description, :address, business_sub_category_attributes: [:sub_category_id, :business_sub_category_id],
+    params.require(:business).permit(:name, :description, :address, :photo, business_sub_category_attributes: [:sub_category_id, :business_sub_category_id],
       sub_category_ids: [] )
   end
 end

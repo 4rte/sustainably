@@ -3,4 +3,5 @@ class SubCategory < ApplicationRecord
   validates :title, presence: true
   has_many :business_sub_categories
   has_many :businesses, through: :business_sub_categories
+  has_one_attached :photo
 end
