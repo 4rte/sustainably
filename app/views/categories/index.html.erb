@@ -1,7 +1,5 @@
-<div class="gradient-container">
-
-
-  <h1>Categories Index</h1>
+<div class="gradient-container" style="height: 100vh">
+  <%= render 'shared/navbar' %>
     <% @categories.each do |category| %>
     <div class="card-category"><div class="btn-category-black"> <%= link_to category.title, category_path(category) %></div></div>
     <% end %>
