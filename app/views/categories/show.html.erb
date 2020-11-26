@@ -22,8 +22,8 @@
 <!-- CODE BELOW IS FOR CATEGORIES-INDEX PAGE -->
   <div class="image-container">
     <div class="category-page-container">
-      <div class="header-category"> Fashion</div>
-      <div class= "header-category-description">Explore the world of sustainable fashion. Write reviews and shop with a conscience</div>
+      <div class="header-category"> <%= @category.title %> </div>
+      <div class= "header-category-description">Explore the world of sustainable fashion. Write reviews andshop with a conscience</div>
       <div class="text-center">
         <div class="btn-explore"><%= link_to "Explore", category_sub_categories_path(@category) %></div>
       </div>
