@@ -19,19 +19,29 @@ seed_category_1 = Category.new title: "Fashion"
   sub_category_1 = SubCategory.new title: "Clothes"
   sub_category_1.category = seed_category_1
   sub_category_1.save
-  business = Business.create(name: 'Humana')
+  business = Business.create(name: 'Humana', description: 'From casual wear to highly elegant, from traditional costume to totally trendy!
+  Whether you are looking for household goods or curtains for your living room - with us you will find maximum quality at a low price!
+  Everything are individual pieces. Coincidence when you find two identical parts.', address: 'Friedrichstrasse 1, Berlin')
   BusinessSubCategory.create(business: business, sub_category: sub_category_1)
 
     sub_category_2 = SubCategory.new title: "Sportswear"
     sub_category_2.category = seed_category_1
     sub_category_2.save
-    BusinessSubCategory.create(business: business, sub_category: sub_category_2)
+    business2 = Business.create(name: 'Patagonia', description: 'Patagonia is a B Corp committed to the triple bottom line: profit, people, and planet. The brand\'s mission incorporates building the best products for those who love the great outdoors while also caring for the environment. Whether you\'re looking for yoga pants, outdoor jackets, running shorts, or activewear for little ones, this California-based brand has got you covered.', address: 'Chausseestrasse 25, Berlin')
+    BusinessSubCategory.create(business: business2, sub_category: sub_category_2)
+
       sub_category_3 = SubCategory.new title: "Shoes"
       sub_category_3.category = seed_category_1
       sub_category_3.save
+      business3 = Business.create(name: 'Allbirds', description: "Allbirds started with one simple mission: to make shoes in a better way, using natural materials. The brand's shoes are made from sustainable materials like FSC Certified Tencel Lyocell and ZQ Merino Wool, the latter of which ensures environmental and animal-friendly practices. With a simple pricing structure and comfortable, lightweight designs, these shoes will be your go-to for daily wear.", address: 'Chausseestrasse 25, Berlin')
+      BusinessSubCategory.create(business: business3, sub_category: sub_category_3)
+
         sub_category_4 = SubCategory.new title: "Accessories"
         sub_category_4.category = seed_category_1
         sub_category_4.save
+        business4 = Business.create(name: 'ACKERMANN', description: "Beate Sedlacek and Karl-Henning Hohmann design all kinds of high quality leather bags and accessories in their manufactory Ackermann Taschenmanufaktur in Lüneburg, Germany. Characterised by simple and timeless shapes and styles, their collections are not subject to any trend but emphasise your personality. Super soft and long-lasting, their good leather will develop patina which makes every piece gain in personal value over time. Since 1982 the experienced team ensures environmentally friendly production through world-leading environmental standards. The deerskin comes from Germany and Austria and is tanned “sämisch”, a centuries-old, natural tanning process, dyed by hand with natural colours. New: their olive leather, a cowhide tanned with a purely vegetable tanning agent derived from olive leaves.", address: 'hauptstrasse 1, Lüneburg, Germany')
+        BusinessSubCategory.create(business: business4, sub_category: sub_category_4)
+
 seed_category_1.save
 
 
