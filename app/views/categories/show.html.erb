@@ -22,14 +22,13 @@
 <!-- CODE BELOW IS FOR CATEGORIES-INDEX PAGE -->
 
   <div class="image-container" style="height: 100vh">
-    <div class="category-page-container">
+    <div class="category-page-container" style="margin-top: 25vh">
       <div class="header-category"> <%= @category.title %> </div>
       <div class= "header-category-description">Explore the world of sustainable fashion. Write reviews andshop with a conscience</div>
       <div class="text-center">
         <%= link_to "Explore", category_sub_categories_path(@category), class: "btn-explore" %>
       </div>
     </div>
-    <div><p>placeholder for carousel</p></div>
   </div>
 
 
