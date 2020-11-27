@@ -4,6 +4,7 @@
     <%= f.input :sub_category_ids, as: :select, label: "Choose sub categories", collection: SubCategory.order(:title), label_method: :title, input_html: {multiple: true}, include_hidden: false %>
     <%= f.input :description %>
     <%= f.input :address %>
+    <%= f.input :url %>
     <%= f.input :photo, as: :file %>
     <%= f.submit %>
   <% end %>

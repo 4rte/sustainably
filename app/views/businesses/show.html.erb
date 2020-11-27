@@ -1,28 +1,8 @@
-<!--
-<h2>What other people say about </br> <%= @business.name %></h2>
-
-<% if @business.reviews.empty? %>
-  <p>Be the first to leave a review</p>
-<% else %>
-  <% @business.reviews.each do |review| %>
-    <%= review.content %>
-    <span class="badge badge-primary badge-pill">
-    <% counter = 0 %>
-    <% 5.times do %>
-      <i class="fa <%= review.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
-      <% counter += 1 %>
-    <% end %>
-    </span>
-  <% end %>
-<% end %> -->
-
 <div class="gradient-container">
   <%= render 'shared/navbar' %>
   <div class="card-profile text-center">
     <a href="" style="color: black; text-decoration: underline"><h1><%= @business.name %></h1></a>
     <p><%= @business.description %></p>
-<!--     <a href="" class="btn-main">Rate your experience</a>
- -->
   </div>
    <!-- <div id="map"
     style="width: 50vw; height: 350px;"
@@ -70,5 +50,5 @@
       </div>
     <% end %>
   <% end %>
-  <div class="btn-main">Visit Shop</div>
+  <div class="btn-main"> <a href=<%= @business.url %> >Visit Shop</a></div>
 </div>
