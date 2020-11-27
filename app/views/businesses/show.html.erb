@@ -19,21 +19,22 @@
 <div class="gradient-container">
   <%= render 'shared/navbar' %>
   <div class="card-profile text-center">
-    <h1><%= @business.name %></h1>
+    <a href="" style="color: black; text-decoration: underline"><h1><%= @business.name %></h1></a>
     <p><%= @business.description %></p>
-    <div class="btn-main">Visit Shop</div>
+<!--     <a href="" class="btn-main">Rate your experience</a>
+ -->
   </div>
-   <div id="map"
+   <!-- <div id="map"
     style="width: 50vw; height: 350px;"
     data-markers="<%= @marker.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div> -->
 
   <div class="card-review">
     <%= simple_form_for ([@business, @review]) do |f| %>
     <div class="text-center">
       <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", class:"text-center"%>
     </div>
-      <%= f.input :content, as: :text %>
+      <%= f.input :content, label: false, placeholder: "tell us more about your experience with #{@business.name}...", as: :text %>
       <div class="text-center">
         <%= f.submit class: "btn-review"%>
       </div>
@@ -69,4 +70,5 @@
       </div>
     <% end %>
   <% end %>
+  <div class="btn-main">Visit Shop</div>
 </div>

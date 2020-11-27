@@ -1,17 +1,16 @@
 .card-review {
-  width: 364px;
+  width: 90%;
   /* background-color: white; */
   border: 1px solid black;
   padding: 15px;
-  margin-top: 2vh;
   border-radius: 10px;
 }
 .card-category {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 330px;
-  height: 93px;
+  width: 80vw;
+  height: 12vh;
   // position: absolute;
   // left: 14px;
   // top: 190px;
@@ -122,7 +121,6 @@
   font-weight: lighter;
   font-size: 18px;
   padding-top: 17px;
-  padding-bottom: 17px;
 }
 
 .card-profile h1 {
