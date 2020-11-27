@@ -51,4 +51,10 @@
     <% end %>
   <% end %>
   <div class="btn-main"> <a href=<%= @business.url %> >Visit Shop</a></div>
+  <div id="footer-sticky" class="btn-container-back">
+      <%= link_to "<", categories_path, class: "btn-back" %>
+      <div class="btn-menu-bottom">
+        <img src="<%= asset_path('menu.svg') %>" alt="menu">
+      </div>
+    </div>
 </div>

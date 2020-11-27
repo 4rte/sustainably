@@ -13,4 +13,10 @@
     <% @sub_categories.each do |sub_category| %>
     <div class="card-subcategory"><div class="btn-subcategory-white"> <%= link_to sub_category.title, businesses_path(params: {sub_category_id: sub_category.id}) %></div></div>
     <% end %>
+    <div id="footer-sticky" class="btn-container-back">
+      <%= link_to "<", categories_path, class: "btn-back" %>
+      <div class="btn-menu-bottom">
+        <img src="<%= asset_path('menu.svg') %>" alt="menu">
+      </div>
+    </div>
 </div>
