@@ -2,14 +2,27 @@ class BusinessesController < ApplicationController
   skip_before_action :authenticate_user!
   def index
     # raise
+    @category = Category.find(params[:category_id])
+    @sub_categories = @category.sub_categories
+    # raise
+    @businesses = []
+    @sub_categories.each do |sub_category|
+      @businesses << sub_category.businesses.distinct # is array
+    end
+    # raise
+    @businesses = @businesses.flatten
     if params[:sub_category_id].present?
       @sub_category = SubCategory.find(params[:sub_category_id])
-      # raise
-      @businesses = Business.joins(:business_sub_categories).where(business_sub_categories: { sub_category: @sub_category }).distinct
-    else
-      @businesses = Business.all
-      # raise
+      @businesses = @businesses.select {|business| business.sub_categories.include?(@sub_category)}
     end
+    # if params[:sub_category_id].present?
+    #   @sub_category = SubCategory.find(params[:sub_category_id])
+    #   # raise
+    #   @businesses = Business.joins(:business_sub_categories).where(business_sub_categories: { sub_category: @sub_category }).distinct
+    # else
+      # @businesses = Business.all
+      # raise
+    # end
   end
 
   def show

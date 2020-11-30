@@ -25,11 +25,13 @@ require("channels")
 // External imports
 import "bootstrap";
 import { initStarRating } from '../plugins/init_star_rating';
-
+import JQuery from 'jquery';
+window.$ = window.JQuery = JQuery;
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initMapbox } from '../plugins/init_mapbox';
+import { initDropdown } from '../plugins/init_dropdown';
 
 document.addEventListener('turbolinks:load', () => {
   initStarRating();
