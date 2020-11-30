@@ -1,8 +1,11 @@
  <div class="gradient-container" >
   <%= render 'shared/navbar' %>
-  <div class="card-cover-subcategory" style="background-size: cover; background-image: url(<%= asset_path @sub_category.asset_path %>)">
+  <div class="card-cover-subcategory" >
+    <!-- style="background-size: cover; background-image: url(<%#= asset_path @sub_category.asset_path %>) -->
     <div  class="header-subcategory">
-      <p> <%= @sub_category.title %></p>
+
+      <%= link_to "Clear Filter", businesses_path(category_id: @category) %>
+      <p> <%#= @sub_category.title %></p>
     </div>
     <div class="header-subcategory-description">
 
@@ -11,6 +14,31 @@
       </div>
     </div>
   </div>
+  <div class="dropdown">
+    <script>function initDropdown() {
+      document.getElementById("myDropdown").classList.toggle("show");}
+      window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+      };
+    </script>
+    <button onclick="initDropdown()" class="dropbtn">Dropdown</button>
+    <div id="myDropdown" class="dropdown-content">
+      <% @sub_categories.each do |sub_category| %>
+        <p><%= link_to sub_category.title, businesses_path(category_id: @category, sub_category_id: sub_category) %></p>
+      <% end %>
+      <%= link_to "Clear Filter", businesses_path(category_id: @category) %>
+    </div>
+  </div>
+
 
   <% @businesses.each do |business| %>
     <%= link_to business_path(business), style:"text-decoration: none" do  %>
@@ -23,7 +51,14 @@
         <div class="card-show-overview-infos">
           <h2><%= business.name %></h2>
           <p><%= business.description.truncate(100, separator: ' ') %></p>
-          <p style="text-align: right">rating</p>
+          <p style="text-align: right">
+            <% ratings = [] %>
+            <% business.reviews.each do |review| %>
+              <% ratings << review.rating %>
+            <% end %>
+              <% @average = (ratings.reduce(:+) / ratings.size.to_f) %>
+              <%= @average.round(1) %> </p>
+          <%# raise %>
         </div>
       </div>
     <% end %>
