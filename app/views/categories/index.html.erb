@@ -1,11 +1,22 @@
 <div class="gradient-container" >
   <%= render 'shared/navbar' %>
-  <h2 style="font-size: 28px; margin-top: 4vh;"> what are you looking for?</h2>
-    <img src="<%= asset_path('logo.png') %>" alt="logo-sustainably" style="width: 70px; height: 70px;margin-bottom: 3vh;">
+  <div class="header-category">
+    <h2> ONE STEP CLOSER TO SUSTAINABLE LIVING. </h2>
+    <p>TELL US WHAT <br> YOU'RE LOOKING FOR</p>
+  </div>
     <% @categories.each do |category| %>
-      <div class="card-category" style="background-size: cover; background-image: url(<%= asset_path category.asset_path %>)">
-        <div class="btn-category-black"> <%= link_to category.title, businesses_path(params: {category_id: category.id}) %> </div></div>
-    <% end %>
+
+  <div class="card-category">
+    <div class="card-category-elements">
+      <img src="https://images.unsplash.com/photo-1454944338482-a69bb95894af?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1504&q=80" style="width: 400" alt="">
+      <div class="card-category-infos">
+        <h2 class="underline"><%= category.title %></h2>
+        <p> this is a description</p>
+      </div>
+    </div>
+  </div>
+<% end %>
+
     <div id="footer-sticky" class="btn-container-back">
       <%= link_to "<", root_path, class: "btn-back" %>
       <div class="btn-menu-bottom">
@@ -13,3 +24,10 @@
       </div>
     </div>
 </div>
+
+
+
+
+     <!--  <% @categories.each do |category| %>
+      <div class="card-category" style="background-size: cover; background-image: url(<%= asset_path category.asset_path %>)"><div class="btn-category-black"> <%= link_to category.title, category_sub_categories_path(category) %> </div></div>
+    <% end %> -->
