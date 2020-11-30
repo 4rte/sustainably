@@ -42,5 +42,8 @@ document.addEventListener('turbolinks:load', () => {
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  initDropdown();
 })
+
+
 

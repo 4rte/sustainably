@@ -15,7 +15,7 @@
     </div>
   </div>
   <div class="dropdown">
-    <script>function initDropdown() {
+    <!-- <script>function initDropdown() {
       document.getElementById("myDropdown").classList.toggle("show");}
       window.onclick = function(event) {
         if (!event.target.matches('.dropbtn')) {
@@ -29,8 +29,8 @@
           }
         }
       };
-    </script>
-    <button onclick="initDropdown()" class="dropbtn">Dropdown</button>
+    </script> -->
+    <button id="dropbtn" class="dropbtn">Dropdown</button>
     <div id="myDropdown" class="dropdown-content">
       <% @sub_categories.each do |sub_category| %>
         <p><%= link_to sub_category.title, businesses_path(category_id: @category, sub_category_id: sub_category) %></p>
