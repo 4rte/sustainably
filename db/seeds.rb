@@ -13,7 +13,7 @@ User.create! email: 'player@one.com', password: 123456, admin: true
 User.create! email: 'player@two.com', password: 123456, admin: true
 User.create! email: 'player@three.com', password: 123456, admin: true
 User.create! email: 'player@four.com', password: 123456, admin: true
-seed_category_1 = Category.new title: "Fashion", asset_path: "fashion.jpg"
+seed_category_1 = Category.new title: "Fashion", description: "Explore the world of sustainable fashion and stay up-to-date with the latest sustainable fashion brands and retailers.", asset_path: "fashion.jpg"
   sub_category_1 = SubCategory.new title: "Clothes", asset_path: "fashion_clothes.jpg"
   sub_category_1.category = seed_category_1
   sub_category_1.save
@@ -38,7 +38,7 @@ seed_category_1 = Category.new title: "Fashion", asset_path: "fashion.jpg"
       BusinessSubCategory.create(business: business4, sub_category: sub_category_4)
 seed_category_1.save
 
-seed_category_5 = Category.new title: "Food", asset_path: "food.jpg"
+seed_category_5 = Category.new title: "Food", description: "Help your environment one bite at time. Here you will find all local and organis distributors. Battle climate change the delicious way!", asset_path: "food.jpg"
   sub_category_13 = SubCategory.new title: "Vegetarian", asset_path: "food_vegetarian.jpg"
   sub_category_13.category = seed_category_5
   sub_category_13.save
@@ -50,7 +50,7 @@ seed_category_5 = Category.new title: "Food", asset_path: "food.jpg"
     sub_category_15.save
     seed_category_5.save
     
-    seed_category_6 = Category.new title: "Home", asset_path: "home.jpg"
+    seed_category_6 = Category.new title: "Home", description: "Find stylish and sustainable options to dress up your home. Sustainable furniture does not need to be made out of EUR-pallets.", asset_path: "home.jpg"
       sub_category_16 = SubCategory.new title: "Furniture", asset_path: "home_furniture.jpg"
       sub_category_16.category = seed_category_6
       sub_category_16.save
@@ -62,7 +62,7 @@ seed_category_5 = Category.new title: "Food", asset_path: "food.jpg"
           sub_category_18.save
     seed_category_6.save
     
-seed_category_2 = Category.new title: "Finance", asset_path: "finance.jpg"
+seed_category_2 = Category.new title: "Finance", description: "Use your budgets to help yourself and the environment. Increase your returns, not your carbon footprint.", asset_path: "finance.jpg"
   sub_category_5 = SubCategory.new title: "Banking", asset_path: "finance_banking.jpg"
   sub_category_5.category = seed_category_2
   sub_category_5.save
@@ -70,7 +70,7 @@ seed_category_2 = Category.new title: "Finance", asset_path: "finance.jpg"
     sub_category_6.category = seed_category_2
     sub_category_6.save
 seed_category_2.save
-seed_category_3 = Category.new title: "Travel", asset_path: "travel.jpg"
+seed_category_3 = Category.new title: "Travel", description: "Explore and enjoy yourself in new places without breaking the bank or the ozone layer. Find the best eco-lodges and much more!", asset_path: "travel.jpg"
   sub_category_7 = SubCategory.new title: "Luggage", asset_path: "travel_luggage.jpg"
   sub_category_7.category = seed_category_3
   sub_category_7.save
@@ -81,7 +81,7 @@ seed_category_3 = Category.new title: "Travel", asset_path: "travel.jpg"
       sub_category_9.category = seed_category_3
       sub_category_9.save
 seed_category_3.save
-seed_category_4 = Category.new title: "Energy", asset_path: "energy.jpg"
+seed_category_4 = Category.new title: "Energy", description: "Power your house and local providers. Find out which energy providers are the greenest in your area.", asset_path: "energy.jpg"
   sub_category_10 = SubCategory.new title: "Electricity", asset_path: "energy_electricity.jpg"
   sub_category_10.category = seed_category_4
   sub_category_10.save

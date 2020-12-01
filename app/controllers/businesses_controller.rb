@@ -63,6 +63,12 @@ class BusinessesController < ApplicationController
     end
   end
 
+  def update
+  
+  end
+  
+  private
+
   def business_params
     params.require(:business).permit(:name, :description, :address, :url, :photo, business_sub_category_attributes: [:sub_category_id, :business_sub_category_id],
       sub_category_ids: [] )
