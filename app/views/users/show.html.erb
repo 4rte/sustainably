@@ -2,92 +2,18 @@
     <%= render 'shared/navbar' %>
 
   <div class="header-category">
-    <% if current_user.photo.attached? %>
-      <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar", style:"width: 130px" %>
+    <% if @user.photo.attached? %>
+      <%= cl_image_tag @user.photo.key, crop: :fill, class: "avatar", style:"width: 130px" %>
     <% else %>
       <img src="https://www.flaticon.com/svg/static/icons/svg/1077/1077114.svg" alt="profile_pic">
     <% end %>
 
-    <% if user_signed_in? && current_user.first_name != nil %>
-      <p> Wecolme back, <%= @user.first_name %>!</p>
+    <% if user_signed_in? && @user.first_name.present? && @user.last_name.present? %>
+      <p> <%= @user.first_name %> <%= @user.last_name %></p>
     <% else %>
-    <p> Welcome back!</p>
+    <p> Hi there!</p>
     <% end %>
   </div>
-
-
-<!--   <div class="classic-tabs mx-2">
-
-    <ul class="nav tabs-cyan profile-subcategories" id="myClassicTabShadow" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link waves-light active show" id="profile-tab-classic-shadow" data-toggle="tab" href="#profile-classic-shadow"
-          role="tab" aria-controls="profile-classic-shadow" aria-selected="true">bio</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link waves-light" id="follow-tab-classic-shadow" data-toggle="tab" href="#follow-classic-shadow"
-          role="tab" aria-controls="follow-classic-shadow" aria-selected="false">reviews</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link waves-light" id="contact-tab-classic-shadow" data-toggle="tab" href="#contact-classic-shadow"
-          role="tab" aria-controls="contact-classic-shadow" aria-selected="false">blog</a>
-      </li>
-    </ul>
-
-    <div class="tab-content profile-card" id="myClassicTabContentShadow">
-
-      <div class="tab-pane fade active show" id="profile-classic-shadow " role="tabpanel" aria-labelledby="profile-tab-classic-shadow">
-        <div class="profile-container">
-          <% if @user.bio.empty? %>
-          <p> It looks like you haven't filled in your bio yet.. How come? Tell us more about yourself and join the Sustainably community!</p>
-        <% else %>
-          <div class="text-center"><%= @user.bio %></div>
-        <% end %>
-
-          <div id="profile-edit-button" class="text-center "><%= link_to 'Edit my profile', edit_user_path(current_user) %></div>
-        </div>
-      </div>
-
-      <div class="tab-pane fade" id="follow-classic-shadow" role="tabpanel" aria-labelledby="follow-tab-classic-shadow">
-        <div class="profile-container">
-          <% if @user.reviews.empty? %>
-            <p>You didn't leave any review yet.</p>
-            <div class="text-center"><%= link_to 'Browse our shops', categories_path, class: "underline" %></div>
-          <% else %>
-          <% @user.reviews.each do |review| %>
-          <div class="card-review-overview">
-            <div class="card-review-left-user-div">
-              <% if review.user.photo.attached? %>
-              <%= cl_image_tag review.user.photo.key, width: 400, crop: :fill %>
-              <% else %>
-              <img src="https://www.flaticon.com/svg/static/icons/svg/1077/1077114.svg" alt="profile_pic">
-              <% end %>
-            </div>
-            <div class="card-review-overview-infos">
-              <h2><%= review.user.first_name %></h2>
-              <p><%= review.content %></p>
-              <p style="text-align: right"><span class="badge badge-primary badge-pill">
-                <% counter = 0 %>
-                <% 5.times do %>
-                  <i class="fa <%= review.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
-                  <% counter += 1 %>
-                <% end %>
-              </span></p>
-            </div>
-          </div>
-          <% end %>
-          <% end %>
-        </div>
-      </div>
-
-      <div class="tab-pane fade" id="contact-classic-shadow" role="tabpanel" aria-labelledby="contact-tab-classic-shadow">
-        <div class="profile-container text-center">
-          <p> Coming soon...</p>
-        </div>
-      </div>
-    </div>
-
-  </div> -->
-
 
   <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item">
@@ -103,12 +29,14 @@
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
       <div class="profile-container">
-        <% if @user.bio.empty? %>
-          <p> It looks like you haven't filled in your bio yet.. How come? Tell us more about yourself and join the Sustainably community!</p>
-        <% else %>
+        <% if @user.bio %>
           <div class="text-center"><%= @user.bio %></div>
+        <% else %>
+          <p> It looks like you haven't filled in your bio yet.. How come? Tell us more about yourself and join the Sustainably community!</p>
         <% end %>
+        <% if @user == current_user %>
         <div id="profile-edit-button" class="text-center "><%= link_to 'Edit my profile', edit_user_path(current_user) %></div>
+        <% end %>
       </div>
     </div>
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">

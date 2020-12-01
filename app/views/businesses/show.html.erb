@@ -12,9 +12,9 @@
   <div class="card-review">
     <%= simple_form_for ([@business, @review]) do |f| %>
     <div class="text-center">
-      <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", class:"text-center"%>
+      <%= f.input :rating, required: true, collection: (1..5).to_a, label: "Rate your experience", class:"text-center"%>
     </div>
-      <%= f.input :content, label: false, input_html: { maxlength: 100, size: 40}, placeholder: "tell us more about your experience with #{@business.name}...", as: :text %>
+      <%= f.input :content, required: true, label: false, input_html: { maxlength: 100, size: 40}, include_blank: false, include_hidden: false, placeholder: "tell us more about your experience with #{@business.name}...", as: :text %>
       <div class="text-center">
         <%= f.submit class: "btn-review"%>
       </div>
@@ -34,7 +34,7 @@
           <% else %>
           <img src="https://www.flaticon.com/svg/static/icons/svg/1077/1077114.svg" alt="profile_pic">
           <% end %>
-          <a href="#">Link to all users-reviews</a>
+          <%= link_to "Go to Profile", user_path(review.user) %> 
         </div>
         <div class="card-review-overview-infos">
           <h2><%= review.user.first_name %></h2>
