@@ -1,8 +1,7 @@
 <div id="footer-sticky" class="avatar-bottom">
     <div class="btn-menu-bottom">
-      <% if user_signed_in?  && current_user.photo != nil%>
+      <% if user_signed_in?  && current_user.photo.present? %>
         <li class="nav-item dropdown">
-          <!-- <img src="<%= asset_path('menu.svg') %>" alt="menu"> -->
           <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Add a business", new_business_path , class: "dropdown-item" %>
@@ -10,7 +9,7 @@
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
-      <% elsif user_signed_in?  && current_user.photo = nil%>
+      <% elsif user_signed_in?%>
         <img src="https://www.flaticon.com/svg/static/icons/svg/1077/1077114.svg" alt="profile_pic" class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Add a business", new_business_path , class: "dropdown-item" %>
