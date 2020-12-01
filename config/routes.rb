@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
+
   root to: 'pages#home'
   resources :categories, only: [:index, :show] do
     resources :sub_categories, only: [:index]
@@ -7,4 +8,6 @@ Rails.application.routes.draw do
   resources :businesses, only: [:index, :show, :new, :create] do
     resources :reviews, only: [:create]
   end
+
+  resources :users, only: [:show, :edit, :update]
 end
