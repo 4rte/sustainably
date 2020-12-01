@@ -6,15 +6,17 @@
   </div>
     <% @categories.each do |category| %>
 
-  <div class="card-category">
+      <%= link_to businesses_path(category_id: category) do %>
+  <div class="card-category" >
     <div class="card-category-elements">
-      <img src="https://images.unsplash.com/photo-1454944338482-a69bb95894af?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1504&q=80" style="width: 400" alt="">
+      <img src="<%= asset_path(category.asset_path) %>" style="width: 400" alt="">
       <div class="card-category-infos">
         <h2 class="underline"><%= category.title %></h2>
         <p> this is a description</p>
       </div>
     </div>
   </div>
+      <% end %>
 <% end %>
 
     <div id="footer-sticky" class="btn-container-back">

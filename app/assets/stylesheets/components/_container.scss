@@ -7,6 +7,9 @@
   padding-bottom: 80px;
 }
 
+.gradient-container a {
+  color:black;
+}
 .image-container {
   background-image: url("https://images.unsplash.com/photo-1517502166878-35c93a0072f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"), linear-gradient((180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #FFFFFF);
   height: 90vh;
