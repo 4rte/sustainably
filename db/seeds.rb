@@ -31,12 +31,37 @@ seed_category_1 = Category.new title: "Fashion", asset_path: "fashion.jpg"
       sub_category_3.save
       # business3 = Business.create(name: 'Allbirds', description: "Allbirds started with one simple mission: to make shoes in a better way, using natural materials. The brand's shoes are made from sustainable materials like FSC Certified Tencel Lyocell and ZQ Merino Wool, the latter of which ensures environmental and animal-friendly practices. With a simple pricing structure and comfortable, lightweight designs, these shoes will be your go-to for daily wear.", address: 'Chausseestrasse 25, Berlin')
       # BusinessSubCategory.create(business: business3, sub_category: sub_category_3)
-        sub_category_4 = SubCategory.new title: "Accessories", asset_path: "fashion_accessories.jpg"
-        sub_category_4.category = seed_category_1
-        sub_category_4.save
-        # business4 = Business.create(name: 'ACKERMANN', description: "Beate Sedlacek and Karl-Henning Hohmann design all kinds of high quality leather bags and accessories in their manufactory Ackermann Taschenmanufaktur in Lüneburg, Germany. Characterised by simple and timeless shapes and styles, their collections are not subject to any trend but emphasise your personality. Super soft and long-lasting, their good leather will develop patina which makes every piece gain in personal value over time. Since 1982 the experienced team ensures environmentally friendly production through world-leading environmental standards. The deerskin comes from Germany and Austria and is tanned "sämisch", a centuries-old, natural tanning process, dyed by hand with natural colours. New: their olive leather, a cowhide tanned with a purely vegetable tanning agent derived from olive leaves.", address: 'hauptstrasse 1, Lüneburg, Germany')
-        # BusinessSubCategory.create(business: business4, sub_category: sub_category_4)
+      sub_category_4 = SubCategory.new title: "Accessories", asset_path: "fashion_accessories.jpg"
+      sub_category_4.category = seed_category_1
+      sub_category_4.save
+      # business4 = Business.create(name: 'ACKERMANN', description: "Beate Sedlacek and Karl-Henning Hohmann design all kinds of high quality leather bags and accessories in their manufactory Ackermann Taschenmanufaktur in Lüneburg, Germany. Characterised by simple and timeless shapes and styles, their collections are not subject to any trend but emphasise your personality. Super soft and long-lasting, their good leather will develop patina which makes every piece gain in personal value over time. Since 1982 the experienced team ensures environmentally friendly production through world-leading environmental standards. The deerskin comes from Germany and Austria and is tanned "sämisch", a centuries-old, natural tanning process, dyed by hand with natural colours. New: their olive leather, a cowhide tanned with a purely vegetable tanning agent derived from olive leaves.", address: 'hauptstrasse 1, Lüneburg, Germany')
+      # BusinessSubCategory.create(business: business4, sub_category: sub_category_4)
 seed_category_1.save
+
+seed_category_5 = Category.new title: "Food", asset_path: "food.jpg"
+  sub_category_13 = SubCategory.new title: "Vegetarian", asset_path: "food_vegetarian.jpg"
+  sub_category_13.category = seed_category_5
+  sub_category_13.save
+    sub_category_14 = SubCategory.new title: "Vegan", asset_path: "food_vegan.jpg"
+    sub_category_14.category = seed_category_5
+    sub_category_14.save
+    sub_category_15 = SubCategory.new title: "Meat", asset_path: "food_meat.jpg"
+    sub_category_15.category = seed_category_5
+    sub_category_15.save
+    seed_category_5.save
+    
+    seed_category_6 = Category.new title: "Home", asset_path: "home.jpg"
+      sub_category_16 = SubCategory.new title: "Furniture", asset_path: "home_furniture.jpg"
+      sub_category_16.category = seed_category_6
+      sub_category_16.save
+        sub_category_17 = SubCategory.new title: "Decor", asset_path: "home_decor.jpg"
+        sub_category_17.category = seed_category_6
+        sub_category_17.save
+          sub_category_18 = SubCategory.new title: "Appliances", asset_path: "home_appliances.jpg"
+          sub_category_18.category = seed_category_6
+          sub_category_18.save
+    seed_category_6.save
+    
 seed_category_2 = Category.new title: "Finance", asset_path: "finance.jpg"
   sub_category_5 = SubCategory.new title: "Banking", asset_path: "finance_banking.jpg"
   sub_category_5.category = seed_category_2
@@ -67,28 +92,6 @@ seed_category_4 = Category.new title: "Energy", asset_path: "energy.jpg"
       sub_category_12.category = seed_category_4
       sub_category_12.save
 seed_category_4.save
-seed_category_5 = Category.new title: "Food", asset_path: "food.jpg"
-  sub_category_13 = SubCategory.new title: "Vegetarian", asset_path: "food_vegetarian.jpg"
-  sub_category_13.category = seed_category_5
-  sub_category_13.save
-    sub_category_14 = SubCategory.new title: "Vegan", asset_path: "food_vegan.jpg"
-    sub_category_14.category = seed_category_5
-    sub_category_14.save
-      sub_category_15 = SubCategory.new title: "Meat", asset_path: "food_meat.jpg"
-      sub_category_15.category = seed_category_5
-      sub_category_15.save
-seed_category_5.save
-seed_category_6 = Category.new title: "Home", asset_path: "home.jpg"
-  sub_category_16 = SubCategory.new title: "Furniture", asset_path: "home_furniture.jpg"
-  sub_category_16.category = seed_category_6
-  sub_category_16.save
-    sub_category_17 = SubCategory.new title: "Decor", asset_path: "home_decor.jpg"
-    sub_category_17.category = seed_category_6
-    sub_category_17.save
-      sub_category_18 = SubCategory.new title: "Appliances", asset_path: "home_appliances.jpg"
-      sub_category_18.category = seed_category_6
-      sub_category_18.save
-seed_category_6.save
 
 
 
