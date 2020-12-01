@@ -1,6 +1,6 @@
 .header-subcategory {
-      width: 60%;
-    height: 18%;
+    width: 60%;
+    height: 47px;
     font-family: "Josefin Sans";
     font-weight: bold;
     font-size: 5vw;
@@ -13,19 +13,16 @@
     justify-content: center;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #000000;
-    background-color: white;
-    border-radius: 6px;
+    color: white;
+    background-color: #4DB6AC;
     margin: 10px;
 }
 
 .header-subcategory-description {
   width: 70%;
-    height: 50%;
-    background-color: white;
-    border: 2px solid black;
+    height: 128px;
     font-family: "Josefin Sans";
-    font-weight: 300;
+    font-weight: normal;
     font-size: 3.4vw;
     /* line-height: 18px; */
     letter-spacing: 0.04em;
@@ -36,8 +33,9 @@
     align-items: center;
     text-align: center;
     justify-content: center;
-    padding-top: 20px;
-    margin-top: 15px;
+    padding-top: 8px;
+    margin-top: 8px;
+    line-height: 22px;
 }
 
 .header-category {

@@ -39,13 +39,13 @@
         <div class="card-review-overview-infos">
           <h2><%= review.user.first_name %></h2>
           <p><%= review.content %></p>
-          <p style="text-align: right"><span class="badge badge-primary badge-pill">
+          <p style="text-align: right">
             <% counter = 0 %>
             <% 5.times do %>
-              <i class="fa <%= review.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
+              <i class="fas <%= review.rating > counter ? 'fa-star' : 'fa-star-o' %>" ></i>
               <% counter += 1 %>
             <% end %>
-          </span></p>
+          </p>
         </div>
       </div>
     <% end %>
