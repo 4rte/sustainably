@@ -52,7 +52,7 @@
   <% end %>
   <a class="btn-main" href=<%= @business.url %> >Visit Shop</a>
  <div id="footer-sticky" class="btn-container-back">
-    <%= link_to '<', categories_path, class: "btn-menu-bottom" %>
+    <%= link_to '<', businesses_path(category_id: @business.category.id), class: "btn-menu-bottom" %>
     <div class="btn-menu-bottom">
       <% if user_signed_in? && current_user.photo.present? %> %>
         <li class="nav-item dropdown">
