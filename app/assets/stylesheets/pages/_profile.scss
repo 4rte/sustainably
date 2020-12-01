@@ -1,0 +1,40 @@
+.profile-subcategories {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+
+.profile-container {
+  background-color: #fcf8f2;
+  border: 1px solid #00b9ac;
+  padding: 12px 20px 12px 20px;
+  border-radius: 6px;
+  font-weight: lighter;
+  box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+#myClassicTabContentShadow {
+  margin: 15px;
+
+
+}
+
+.profile-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border-radius: 6px;
+}
+
+
+
+#profile-edit-button {
+  font-size: 12px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  border-bottom: 1px solid #56BBB1;
+  // display: inline;
+}
