@@ -1,16 +1,26 @@
  /* Dropdown Button */
 .dropbtn {
+  min-width: 190px;
   background-color: #FFFFFF;
   // padding: 16px;
   // font-size: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.8);
+  border: 1px solid #707070;
   box-sizing: border-box;
   cursor: pointer;
+  padding: 6px 8px 6px 8px;
+  color:#707070;
+  border-radius: 2px;
+}
+
+.dropbtn span {
+  float: right;
+  line-height: inherit;
+  padding-left: 8px;
 }
 
 /* Dropdown button on hover & focus */
 .dropbtn:hover, .dropbtn:focus {
-  background-color: #2980B9;
+  // background-color: #2980B9;
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -20,7 +30,7 @@
 }
 
 .dropdown a {
-  color: #CC0033;
+  color: #707070;
   font-size: 14px;
 }
 
@@ -28,20 +38,22 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  min-width: 160px;
+  min-width: 190px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
   background: #FFFFFF;
   border: 1px solid rgba(0, 185, 172, 0.8);
   box-sizing: border-box;
+  padding: 6px 8px 6px 8px;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
   color: black;
-  padding: 12px 16px;
+  padding: 12px;
   text-decoration: none;
   display: block;
+  // border-bottom: 1px solid rgba(0, 185, 172, 0.8);
 }
 
 /* Change color of dropdown links on hover */
