@@ -37,7 +37,11 @@
           <%= link_to "Go to Profile", user_path(review.user) %> 
         </div>
         <div class="card-review-overview-infos">
-          <h2><%= review.user.first_name %></h2>
+          <% if review.user.first_name.present? %>
+            <h2><%= review.user.first_name %></h2>
+          <% else %>
+            <h2>Anonymous</h2>
+          <% end %>
           <p><%= review.content %></p>
           <p style="text-align: right">
             <% counter = 0 %>
