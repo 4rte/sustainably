@@ -5,6 +5,13 @@
   padding: 15px;
   border-radius: 10px;
 }
+
+.underline {
+   border-bottom: 1px solid #56BBB1;
+   display: inline;
+   color: black;
+}
+
 .card-category {
   height: 150px;
   width: 364px;
@@ -18,11 +25,7 @@
   border: 1px solid #56BBB1;
 }
 
-.underline {
-   border-bottom: 1px solid #56BBB1;
-   display: inline;
-   color: black;
-}
+
 
 .card-category-elements {
   display: flex;
@@ -204,7 +207,7 @@
   border: 1px solid #4DB6AC;
   border-radius: 50%;
   margin-bottom: 10px;
-  padding: 4px;
+  padding: 6px;
 }
 
 .card-review-overview h2 {
@@ -252,4 +255,67 @@
   align-items: center;
   display: flex;
   justify-content: center;
+}
+
+.card-user-profile-review-container {
+  background-color: #EBF1E9;
+  padding: 10px;
+  border: 1px solid #4DB6AC;
+  border-radius: 10px;
+}
+
+.card-user-profile-review-overview {
+  overflow: hidden;
+  height: 114px;
+  width: 100%;
+  background: white;
+  /* box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.2); */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* border: 1px solid #4DB6AC; */
+  box-sizing: border-box;
+  /* margin-top: 14px; */
+  border-radius: 6px;
+  color: black;
+}
+
+.card-user-profile-review-left img {
+  border-radius: 50%;
+  height: 70px;
+  width: 70px;
+  border: 1px solid #4DB6AC;
+  padding: 6px;
+}
+
+
+.card-user-profile-review-overview .card-user-profile-review-overview-infos {
+  padding-top: 14px;
+  padding-right: 10px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: normal;
+  justify-content: center;
+  margin-left: 20px;
+}
+
+.card-user-profile-review-overview-infos h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+
+.card-review-overview p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  // margin-bottom: 0;
+  // margin-top: 8px;
+}
+
+.card-user-profile-review-overview img {
+  margin-left: 15px;
 }
