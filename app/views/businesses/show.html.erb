@@ -3,6 +3,16 @@
   <div class="card-profile text-center">
     <a href="" style="color: black; text-decoration: underline"><h1><%= @business.name %></h1></a>
     <p><%= @business.description %></p>
+    <div>
+      <% if current_user %>
+          <% if !@user.bookmarks.find{|bookmark| bookmark.business == @business}.present? %>
+          <%# raise  %>
+            <h4><%= link_to 'Bookmark this business', business_bookmarks_path(@business), method: :post, remote: true, class: "btn btn-ghost" %></h4>
+          <% else %>
+            <h4><%= link_to 'Remove Bookmark', bookmark_path(@bookmark), method: :delete, remote: true, class: "btn btn-ghost"  %></h4>
+          <% end %>
+      <% end %>
+    </div>
   </div>
    <!-- <div id="map"
     style="width: 50vw; height: 350px;"
@@ -34,7 +44,7 @@
           <% else %>
           <img src="https://www.flaticon.com/svg/static/icons/svg/1077/1077114.svg" alt="profile_pic">
           <% end %>
-          <%= link_to "Go to Profile", user_path(review.user) %> 
+          <%= link_to "Go to Profile", user_path(review.user) %>
         </div>
         <div class="card-review-overview-infos">
           <% if review.user.first_name.present? %>

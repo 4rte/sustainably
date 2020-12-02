@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   end
   resources :businesses, only: [:index, :show, :new, :create] do
     resources :reviews, only: [:create]
+    resources :bookmarks, only: [:create]
   end
 
   resources :users, only: [:show, :edit, :update]
+  resources :bookmarks, only: [ :index, :destroy ]
 end

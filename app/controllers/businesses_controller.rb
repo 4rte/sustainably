@@ -29,6 +29,7 @@ class BusinessesController < ApplicationController
     @business = Business.find(params[:id])
     @review = Review.new
     @user = current_user
+    @bookmark = Bookmark.find_by(business: @business, user: @user)
     # raise
     @marker = [{lat: @business.latitude,
     lng: @business.longitude}
@@ -64,9 +65,9 @@ class BusinessesController < ApplicationController
   end
 
   def update
-  
+
   end
-  
+
   private
 
   def business_params
