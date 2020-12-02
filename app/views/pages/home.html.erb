@@ -2,35 +2,36 @@
 <p>Find me in app/views/pages/home.html.erb</p>
 <%= link_to 'Go to Categories', categories_path %>
  -->
-<div class="gradient-container" style="height: 100vh; justify-content: center">
+<div class="gradient-container" style="justify-content: center">
   <%= render 'shared/navbar' %>
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="height: 100%; font-weight: lighter; margin-left:5vw; margin-right:5vw;">
     <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="0"  data-touch="true" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1" data-touch="true"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2" data-touch="true"></li>
     </ol>
     <div class="carousel-inner">
-      <div class="carousel-item active" style="font-size: 36px">
+      <div class="carousel-item active" style="font-size: 36px; height: 100vh;">
         <p style="margin-top: 200px;">So you feel like <br>it’s time you start<br> living a more<br>sustainable life?</p>
       </div>
-      <div class="carousel-item" style="font-size: 36px">
+      <div class="carousel-item" style="height: 100vh; font-size: 36px">
         <p style="margin-top: 10vh;">Well, you’ve <br>come to the <br>right place... </p>
-        <p style="margin-top: 50px; margin-bottom: 40px;">Sustainably is your <br>community hub to<br> buy all things <br> second hand </p>
-        <div class="text-right" style="margin-right: 10vw"><img src="<%= asset_path('logo.png') %>" alt="logo-sustainably" style="width: 70px; height: 70px"></div>
-      </div>
+        <p style="margin-top: 50px; margin-bottom: 40px;">A warm welcome <br> to our community <br> hub, where you <br> can buy all things <br> <strong>sustainably</strong>.</p>
+<!--         <div class="text-right" style="margin-right: 10vw"><img src="<%= asset_path('logo.png') %>" alt="logo-sustainably" style="width: 70px; height: 70px"></div>
+ -->      </div>
       <div class="carousel-item" style="text-align: center; height: calc( 100vh - 66px );">
-        <h1 style="margin-bottom: 5vh; margin-top: 12vh "> Sustainably </h1>
-        <p style="font-size: 24px; margin-bottom: 5vh">let us  <br> help you <br> buy better!</p>
-        <img src="<%= asset_path('logo.png') %>" alt="logo-sustainably" style="width: 70px; height: 70px">
-        <%= link_to 'Explore', categories_path, class: "btn-explore", style:"margin-top: 10vh"%>
-        <% unless user_signed_in? %>
-          <div id="footer-sticky" class="btn-container-register">
-            <%= link_to "register", new_user_registration_path, class: "btn-register"  %>
-            <%= link_to "sign in", new_user_session_path, class: "btn-register" %>
-          </div>
-        <% end %>
-
+        <div>
+          <h1 style="margin-bottom: 5vh; margin-top: 12vh "> Sustainably </h1>
+          <p style="font-size: 24px; margin-bottom: 5vh">let us  <br> help you <br> buy better!</p>
+          <img src="<%= asset_path('logo.png') %>" alt="logo-sustainably" style="width: 70px; height: 70px">
+          <%= link_to 'Explore', categories_path, class: "btn-explore", style:"margin-top: 10vh"%>
+          <% unless user_signed_in? %>
+            <div id="footer-sticky" class="btn-container-register">
+              <%= link_to "register", new_user_registration_path, class: "btn-register"  %>
+              <%= link_to "sign in", new_user_session_path, class: "btn-register" %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
