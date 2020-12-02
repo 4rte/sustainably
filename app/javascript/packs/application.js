@@ -33,16 +33,18 @@ window.$ = window.JQuery = JQuery;
 import { initMapbox } from '../plugins/init_mapbox';
 import { initDropdown } from '../plugins/init_dropdown';
 
-document.addEventListener('turbolinks:load', () => {
-  initStarRating();
-  // Call your functions here, e.g:
-  // initSelect2();
-});
+// document.addEventListener('turbolinks:load', () => {
+//   initStarRating();
+//   // Call your functions here, e.g:
+//   // initSelect2();
+// });
 
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initDropdown();
+  initStarRating();
+
 })
 
 
