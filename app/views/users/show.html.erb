@@ -47,25 +47,29 @@
       <% else %>
       <% @user.reviews.each do |review| %>
       <%= link_to business_path(review.business), style:"text-decoration: none" do  %>
-        <div class="card-review-overview">
-          <div class="card-review-left-user-div">
-            <% if review.user.photo.attached? %>
-            <%= cl_image_tag review.user.photo.key, width: 400, crop: :fill %>
-            <% else %>
-            <img src="https://www.flaticon.com/svg/static/icons/svg/1077/1077114.svg" alt="profile_pic">
-            <% end %>
-          </div>
+        <div class="card-user-profile-review-container">
+          <div class="card-user-profile-review-overview">
+            <div class="w-33">
+              <div class="card-user-profile-review-left">
+                <% if review.user.photo.attached? %>
+                <%= cl_image_tag review.user.photo.key, width: 400, crop: :fill %>
+                <% else %>
+                <img src="https://www.flaticon.com/svg/static/icons/svg/1077/1077114.svg" alt="profile_pic">
+                <% end %>
+              </div>
+            </div>
 
-          <div class="card-review-overview-infos">
-            <h2><%= review.business.name %></h2>
-            <p><%= review.content %></p>
-            <p style="text-align: right"><span class="badge badge-primary badge-pill">
-              <% counter = 0 %>
-              <% 5.times do %>
-                <i class="fa <%= review.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
-                <% counter += 1 %>
-              <% end %>
-            </span></p>
+            <div class="card-user-profile-review-overview-infos w-80">
+              <h2><%= review.business.name %></h2>
+              <p><%= review.content %></p>
+              <p style="text-align: right"><span class="badge badge-primary badge-pill">
+                <% counter = 0 %>
+                <% 5.times do %>
+                  <i class="fa <%= review.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
+                  <% counter += 1 %>
+                <% end %>
+              </span></p>
+            </div>
           </div>
         </div>
         <% end %>
