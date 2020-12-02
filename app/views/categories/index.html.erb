@@ -6,7 +6,7 @@
   </div>
     <% @categories.each do |category| %>
 
-      <%= link_to businesses_path(category_id: category) do %>
+      <%= link_to businesses_path(category_id: category), style:"text-decoration: none" do %>
   <div class="card-category" >
     <div class="card-category-elements">
       <img src="<%= asset_path(category.asset_path) %>" style="width: 400" alt="">
