@@ -1,11 +1,11 @@
 <div class="container">
   <%= simple_form_for @business do |f| %>
-    <%= f.input :name %>
-    <%= f.input :sub_category_ids, as: :select, label: "Choose sub categories", collection: SubCategory.order(:title), label_method: :title, input_html: {multiple: true}, include_hidden: false %>
-    <%= f.input :description %>
+    <%= f.input :name, required: true %>
+    <%= f.input :sub_category_ids, required: true, as: :select, label: "Choose sub categories", collection: SubCategory.order(:title), label_method: :title, input_html: {multiple: true}, include_hidden: false %>
+    <%= f.input :description, required: true %>
     <%= f.input :address %>
-    <%= f.input :url %>
-    <%= f.input :photo, as: :file %>
+    <%= f.input :url, required: true %>
+    <%= f.input :photo, required: true, as: :file %>
     <%= f.submit %>
   <% end %>
 </div>

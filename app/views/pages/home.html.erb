@@ -24,10 +24,13 @@
         <p style="font-size: 24px; margin-bottom: 5vh">let us  <br> help you <br> buy better!</p>
         <img src="<%= asset_path('logo.png') %>" alt="logo-sustainably" style="width: 70px; height: 70px">
         <%= link_to 'Explore', categories_path, class: "btn-explore", style:"margin-top: 10vh"%>
-        <div id="footer-sticky" class="btn-container-register">
-          <%= link_to "register", new_user_registration_path, class: "btn-register"  %>
-          <%= link_to "sign in", new_user_session_path, class: "btn-register" %>
-        </div>
+        <% unless user_signed_in? %>
+          <div id="footer-sticky" class="btn-container-register">
+            <%= link_to "register", new_user_registration_path, class: "btn-register"  %>
+            <%= link_to "sign in", new_user_session_path, class: "btn-register" %>
+          </div>
+        <% end %>
+
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
