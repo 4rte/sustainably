@@ -1,5 +1,5 @@
 class Business < ApplicationRecord
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   has_many :business_sub_categories, dependent: :destroy
   has_many :sub_categories, through: :business_sub_categories
   accepts_nested_attributes_for :sub_categories, reject_if: :all_blank, allow_destroy: true
