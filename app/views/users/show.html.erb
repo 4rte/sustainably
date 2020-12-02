@@ -23,7 +23,7 @@
       <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">review</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">blog</a>
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#bookmarks" role="tab" aria-controls="contact" aria-selected="false">bookmarks</a>
     </li>
   </ul>
   <div class="tab-content" id="myTabContent">
@@ -70,9 +70,44 @@
       <% end %>
     </div>
   </div>
-  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+  <div class="tab-pane fade" id="bookmarks" role="tabpanel" aria-labelledby="contact-tab">
     <div class="profile-container text-center">
-      <p> Coming soon...</p>
+      <p> These are all your bookmarks:</p>
+      <% @businesses = [] %>
+      <% @bookmarks.each do |bookmark| @businesses << bookmark.business end %>
+      <% @businesses.each do |business| %>
+        <%= link_to business_path(business), style:"text-decoration: none" do  %>
+          <div class="card-show-overview">
+            <% if business.photo.attached? %>
+            <%= cl_image_tag business.photo.key, width: 400, crop: :fill %>
+            <% else %>
+            <img src="https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5a33f2b431358e749fd321af%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D0%26cropX2%3D416%26cropY1%3D0%26cropY2%3D416" alt="humana">
+            <% end %>
+            <div class="card-show-overview-infos">
+              <h2><%= business.name %></h2>
+              <p><%= business.description.truncate(100, separator: ' ') %></p>
+              <p style="text-align: right">
+                <% if business.reviews.present? %>
+                  <% ratings = [] %>
+                  <% business.reviews.each do |review| %>
+                    <% ratings << review.rating %>
+                <% end %>
+                <% @average = (ratings.reduce(:+) / ratings.size.to_f) %>
+                <% output = '' %>
+                <% if (1..5).include?(@average.floor) %>
+                  <% @average.floor.times { output += "<i class='fas fa-star'></i>" } %>
+                <% end %>
+                <% if @average >= (@average.floor + 0.25) && @average <= (@average.floor + 0.75) && @average.to_i != 5 %>
+                  <% output += "<i class='fas fa-star-half'></i>" %>
+                <% end %>
+                  <%= output.html_safe %>
+                <%#= @average %>
+                <% end %>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

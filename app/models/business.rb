@@ -7,6 +7,7 @@ class Business < ApplicationRecord
   has_one_attached :photo
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+  has_many :bookmarks, dependent: :destroy
 
   def category
     sub_categories.first.category # the category of the business
