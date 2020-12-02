@@ -1,5 +1,15 @@
 <div class="gradient-container" >
   <%= render 'shared/navbar' %>
+  <div id="search-bar">
+    <%= form_tag businesses_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "find 'em"
+      %>
+      <%= submit_tag "go", id: "search-button", class: "btn btn-tool" %>
+    <% end %>
+  </div>
   <div class="header-category">
     <h2> ONE STEP CLOSER TO SUSTAINABLE LIVING. </h2>
     <p>TELL US WHAT <br> YOU'RE LOOKING FOR</p>

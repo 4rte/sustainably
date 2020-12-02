@@ -2,18 +2,29 @@ class BusinessesController < ApplicationController
   skip_before_action :authenticate_user!
   def index
     # raise
-    @category = Category.find(params[:category_id])
-    @sub_categories = @category.sub_categories
-    # raise
-    @businesses = []
-    @sub_categories.each do |sub_category|
-      @businesses << sub_category.businesses.distinct # is array
-    end
-    # raise
-    @businesses = @businesses.flatten
-    if params[:sub_category_id].present?
-      @sub_category = SubCategory.find(params[:sub_category_id])
-      @businesses = @businesses.select {|business| business.sub_categories.include?(@sub_category)}
+    if params[:query].present?
+      @businesses = Business.near(params[:query], 100)
+      @markers = @businesses.geocoded.map do |business|
+     {
+      lat: business.latitude,
+      lng: business.longitude,
+      infoWindow: render_to_string(partial: "info_window", locals: { business: business })
+     }
+      end
+    else
+      @category = Category.find(params[:category_id])
+      @sub_categories = @category.sub_categories
+      # raise
+      @businesses = []
+      @sub_categories.each do |sub_category|
+        @businesses << sub_category.businesses.distinct # is array
+      end
+      # raise
+      @businesses = @businesses.flatten
+      if params[:sub_category_id].present?
+        @sub_category = SubCategory.find(params[:sub_category_id])
+        @businesses = @businesses.select {|business| business.sub_categories.include?(@sub_category)}
+      end
     end
     # if params[:sub_category_id].present?
     #   @sub_category = SubCategory.find(params[:sub_category_id])

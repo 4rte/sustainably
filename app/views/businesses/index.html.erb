@@ -1,7 +1,75 @@
  <div class="gradient-container"  >
   <%= render 'shared/navbar' %>
+    <% if params[:query].present? %>
+      <div id="map"
+      style="width: 50vw; height: 350px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+      <% @businesses.each do |business| %>
+    <%= link_to business_path(business), style:"text-decoration: none" do  %>
+      <div class="card-show-overview">
+        <% if business.photo.attached? %>
+        <%= cl_image_tag business.photo.key, width: 400, crop: :fill %>
+        <% else %>
+        <img src="https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5a33f2b431358e749fd321af%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D0%26cropX2%3D416%26cropY1%3D0%26cropY2%3D416" alt="humana">
+        <% end %>
+        <div class="card-show-overview-infos">
+          <h2><%= business.name %></h2>
+          <p><%= business.description.truncate(100, separator: ' ') %></p>
+          <p style="text-align: right">
+            <% if business.reviews.present? %>
+              <% ratings = [] %>
+              <% business.reviews.each do |review| %>
+                <% ratings << review.rating %>
+            <% end %>
+            <% @average = (ratings.reduce(:+) / ratings.size.to_f) %>
+            <% output = '' %>
+            <% if (1..5).include?(@average.floor) %>
+              <% @average.floor.times { output += "<i class='fas fa-star'></i>" } %>
+            <% end %>
+            <% if @average >= (@average.floor + 0.25) && @average <= (@average.floor + 0.75) && @average.to_i != 5 %>
+              <% output += "<i class='fas fa-star-half'></i>" %>
+            <% end %>
+              <%= output.html_safe %>
+            <%#= @average %>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 
-    <!-- style="background-size: cover; background-image: url(<%#= asset_path @sub_category.asset_path %>) -->
+  <div id="footer-sticky" class="btn-container-back">
+    <%= link_to '<', categories_path, class: "btn-back" %>
+    <div class="btn-menu-bottom">
+      <% if user_signed_in? && current_user.photo.present? %>
+        <li class="nav-item dropdown">
+          <!-- <img src="<%= asset_path('menu.svg') %>" alt="menu"> -->
+          <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="border-radius: 6px">
+            <%= link_to "Add a business", new_business_path , class: "dropdown-item" %>
+            <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+      <% elsif user_signed_in?%>
+        <img src="https://www.flaticon.com/svg/static/icons/svg/1077/1077114.svg" alt="profile_pic" class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="border-radius: 6px">
+            <%= link_to "Add a business", new_business_path, class: "dropdown-item" %>
+            <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+      <% else %>
+        <div class="nav-item">
+          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+    <% else %>
+
     <div  class="header-subcategory">
       <% if @sub_category.present? %>
         <p> <%= @sub_category.title %></p>
@@ -88,3 +156,5 @@
     </div>
   </div>
 </div>
+
+    <% end %>
