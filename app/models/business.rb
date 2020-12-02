@@ -8,6 +8,12 @@ class Business < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   has_many :bookmarks, dependent: :destroy
+  include PgSearch::Model
+  pg_search_scope :search_by_name,
+    against: [:name, :description, :address],
+    using: {
+      tsearch: { prefix: true }
+    }
 
   def category
     sub_categories.first.category # the category of the business
