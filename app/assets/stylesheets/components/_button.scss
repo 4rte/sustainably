@@ -214,6 +214,12 @@ width: 170px;
 
 #footer-sticky {
   position: fixed;
+  .show {
+    display: flex !important;
+    .dropdown-menu {
+    display: block !important;
+    }
+  }
 }
 
 .btn-review {
@@ -233,3 +239,5 @@ width: 170px;
 .btn-menu-bottom img {
   height: 50%
 }
+
+
