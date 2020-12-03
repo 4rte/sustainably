@@ -228,7 +228,6 @@
   text-align: center;
   justify-content: center;
   padding-bottom: 10px;
-
 }
 
 
@@ -277,7 +276,6 @@
   padding: 16px;
   margin-top: 8px;
   width: 100%;
-
 }
 
 .card-profile {
@@ -462,3 +460,65 @@
   margin-left: 15px;
 }
 
+
+
+.card-show-overview-popup {
+  overflow: hidden;
+  height: 70px;
+  width: 100%;
+  background: white;
+  box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  border: 1px solid #6F42C1;
+  box-sizing: border-box;
+  border-radius: 10px;
+  margin-top: 2vh;
+}
+
+.card-show-overview-popup img {
+  height: 90%;
+  width: 30%;
+  margin-left: 5px;
+  object-fit: contain;
+  // border: 1px solid #56BBB1;
+  border-radius: 10px;
+}
+
+.card-show-overview-popup h2 {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+  color: black;
+  text-align: start;
+}
+
+.card-show-overview-popup a {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+  color: black;
+  text-align: start;
+}
+
+.card-show-overview-popup a:hover {
+  text-decoration: none;
+}
+
+.card-show-overview-popup p {
+  font-size: 10px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: black;
+  text-align: start;
+}
+
+.card-show-overview-popup .card-show-overview-infos-popup {
+  padding: 16px;
+  margin-top: 8px;
+  width: 100%;
+}
