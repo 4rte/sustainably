@@ -5,7 +5,10 @@ const buildMap = (mapElement) => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/4rte/cki8o02td4sy319rx02vye0rt'
+    style: 'mapbox://styles/4rte/cki8o02td4sy319rx02vye0rt',
+    pitch: 60, // pitch in degrees
+    // bearing: -60, // bearing in degrees
+    zoom: 3
   });
 };
 
