@@ -109,24 +109,26 @@
         <div class="card-subcategory-infos">
           <h2 class="underline-subcat"><%= business.name %></h2>
           <p><%= business.description.truncate(100, separator: ' ') %></p>
-          <p style="text-align: right">
-            <% if business.reviews.present? %>
-              <% ratings = [] %>
-              <% business.reviews.each do |review| %>
-                <% ratings << review.rating %>
-            <% end %>
-            <% @average = (ratings.reduce(:+) / ratings.size.to_f) %>
-            <% output = '' %>
-            <% if (1..5).include?(@average.floor) %>
-              <% @average.floor.times { output += "<i class='fas fa-star'></i>" } %>
-            <% end %>
-            <% if @average >= (@average.floor + 0.25) && @average <= (@average.floor + 0.75) && @average.to_i != 5 %>
-              <% output += "<i class='fas fa-star-half'></i>" %>
-            <% end %>
-              <%= output.html_safe %>
-            <%#= @average %>
-            <% end %>
-          </p>
+          <div style="text-align: right;">
+            <p>
+              <% if business.reviews.present? %>
+                <% ratings = [] %>
+                <% business.reviews.each do |review| %>
+                  <% ratings << review.rating %>
+              <% end %>
+              <% @average = (ratings.reduce(:+) / ratings.size.to_f) %>
+              <% output = '' %>
+              <% if (1..5).include?(@average.floor) %>
+                <% @average.floor.times { output += "<i class='fas fa-star'></i>" } %>
+              <% end %>
+              <% if @average >= (@average.floor + 0.25) && @average <= (@average.floor + 0.75) && @average.to_i != 5 %>
+                <% output += "<i class='fas fa-star-half'></i>" %>
+              <% end %>
+                <%= output.html_safe %>
+              <%#= @average %>
+              <% end %>
+            </p>
+          </div>
         </div>
       </div>
       </div>
