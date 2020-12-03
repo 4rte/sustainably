@@ -4,6 +4,7 @@
     <%= favicon_link_tag %>
     <title><%= meta_title %></title>
     <meta name="description" content="<%= meta_description %>">
+    <meta name="turbolinks-cache-control" content="<%= yield(:turbolinks_cache) %>"> 
 
     <!-- Facebook Open Graph data -->
     <meta property="og:title" content="<%= meta_title %>" />
