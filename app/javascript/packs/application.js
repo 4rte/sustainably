@@ -32,7 +32,7 @@ window.$ = window.JQuery = JQuery;
 // import { initSelect2 } from '../components/init_select2';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initDropdown } from '../plugins/init_dropdown';
-import { initAutocomplete } from '../plugins/init_autocomplete';
+// import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initStarRating } from '../plugins/init_star_rating';
 
 // document.addEventListener('turbolinks:load', () => {
@@ -46,7 +46,7 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initDropdown();
   initStarRating();
-  initAutocomplete();
+  // initAutocomplete();
 
 })
 
