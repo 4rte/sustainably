@@ -3,7 +3,8 @@ class BusinessesController < ApplicationController
   def index
     # raise
     if params[:query].present?
-      @businesses = Business.near(params[:query], 100)
+      @businesses = Business.search_by_name(params[:query])
+      # @businesses = Business.near(params[:query], 100)
       @markers = @businesses.geocoded.map do |business|
      {
       lat: business.latitude,

@@ -8,7 +8,7 @@ const buildMap = (mapElement) => {
     style: 'mapbox://styles/4rte/cki8o02td4sy319rx02vye0rt',
     pitch: 60, // pitch in degrees
     // bearing: -60, // bearing in degrees
-    zoom: 3
+    zoom: 15
   });
 };
 
@@ -33,7 +33,7 @@ const addMarkersToMap = (map, markers) => {
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-  map.fitBounds(bounds, { padding: 70, maxZoom: 12 });
+  map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
 };
 
 const initMapbox = () => {
@@ -43,8 +43,8 @@ const initMapbox = () => {
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
-    // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-    // mapboxgl: mapboxgl }));
+    map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+    mapboxgl: mapboxgl }));
   }
 };
 
