@@ -218,6 +218,10 @@
 
 }
 
+.card-profile a:hover {
+  text-decoration: none;
+}
+
 .card-profile p {
   font-weight: lighter;
   font-size: 18px;
@@ -280,9 +284,9 @@
 
 .card-review-overview .card-review-overview-infos {
   padding-top: 14px;
-  padding-right: 10px;
+  // padding-right: 10px;
   height: 100%;
-  width: 53%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   align-items: normal;
@@ -295,7 +299,7 @@
   justify-content: space-evenly;
   align-items: center;
   // height: 100%;
-  width: 33%;
+  width: 28%;
   text-decoration: underline;
   color: black;
 }
@@ -311,11 +315,12 @@
   padding: 10px;
   border: 1px solid #4DB6AC;
   border-radius: 10px;
+  margin-top: 10px;
 }
 
 .card-user-profile-review-overview {
   overflow: hidden;
-  height: 114px;
+  min-height: 114px;
   width: 100%;
   background: white;
   /* box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.2); */

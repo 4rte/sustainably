@@ -1,3 +1,5 @@
+<%= provide(:turbolinks_cache, 'no-cache') %>
+
 <div class="gradient-container">
   <%= render 'shared/navbar' %>
   <div class="card-profile text-center">
@@ -5,19 +7,9 @@
       <h1><%= @business.name %></h1>
       <% if current_user %>
           <% if !@user.bookmarks.find{|bookmark| bookmark.business == @business}.present? %>
-          <%# raise  %>
-            <%= link_to '', business_bookmarks_path(@business), method: :post, remote: true, class: "far fa-bookmark", style: "color: #404040;margin-left: 8px;"%>
-              <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px ">
-                <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
-              </svg> -->
-            <%# end %>
+            <%= link_to '', business_bookmarks_path(@business), method: :post, remote: true, class: "far fa-heart", style: "color: #404040; margin-left: 8px; font-size: 1.5em;"%>
           <% else %>
-          <!-- <a href=<% bookmark_path(@bookmark)%>>test</a> -->
-            <%= link_to '', bookmark_path(@bookmark), method: :delete, remote: true, class: "fas fa-bookmark", style: "color: #404040;margin-left: 8px;"%>
-              <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 20px; height: 20px ">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
-              </svg> -->
-            <%# end %>
+            <%= link_to '', bookmark_path(@bookmark), method: :delete, remote: true, class: "fas fa-heart", style: "color: #404040;margin-left: 8px; font-size: 1.5em;"%>
           <% end %>
         <% end %>
       </div>
