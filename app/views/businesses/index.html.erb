@@ -8,13 +8,14 @@
       </div>
       <% @businesses.each do |business| %>
     <%= link_to business_path(business), style:"text-decoration: none" do  %>
-      <div class="card-show-overview">
+    <div class="card-category" >
+      <div class="card-category-elements">
         <% if business.photo.attached? %>
         <%= cl_image_tag business.photo.key, width: 400, crop: :fill %>
         <% else %>
         <img src="https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5a33f2b431358e749fd321af%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D0%26cropX2%3D416%26cropY1%3D0%26cropY2%3D416" alt="humana">
         <% end %>
-        <div class="card-show-overview-infos">
+        <div class="card-category-infos">
           <h2><%= business.name %></h2>
           <p><%= business.description.truncate(100, separator: ' ') %></p>
           <p style="text-align: right">
@@ -37,6 +38,7 @@
           </p>
         </div>
       </div>
+    </div>
     <% end %>
   <% end %>
 
