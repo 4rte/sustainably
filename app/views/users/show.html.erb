@@ -82,39 +82,46 @@
       <p> These are all your bookmarks:</p>
       <% @businesses = [] %>
       <% @bookmarks.each do |bookmark| @businesses << bookmark.business end %>
+
       <% @businesses.each do |business| %>
-        <%= link_to business_path(business), style:"text-decoration: none" do  %>
-          <div class="card-show-overview">
-            <% if business.photo.attached? %>
-            <%= cl_image_tag business.photo.key, width: 400, crop: :fill %>
-            <% else %>
-            <img src="https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5a33f2b431358e749fd321af%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D0%26cropX2%3D416%26cropY1%3D0%26cropY2%3D416" alt="humana">
-            <% end %>
-            <div class="card-show-overview-infos">
-              <h2><%= business.name %></h2>
-              <p><%= business.description.truncate(100, separator: ' ') %></p>
-              <p style="text-align: right">
-                <% if business.reviews.present? %>
-                  <% ratings = [] %>
-                  <% business.reviews.each do |review| %>
-                    <% ratings << review.rating %>
-                <% end %>
-                <% @average = (ratings.reduce(:+) / ratings.size.to_f) %>
-                <% output = '' %>
-                <% if (1..5).include?(@average.floor) %>
-                  <% @average.floor.times { output += "<i class='fas fa-star'></i>" } %>
-                <% end %>
-                <% if @average >= (@average.floor + 0.25) && @average <= (@average.floor + 0.75) && @average.to_i != 5 %>
-                  <% output += "<i class='fas fa-star-half'></i>" %>
-                <% end %>
-                  <%= output.html_safe %>
-                <%#= @average %>
-                <% end %>
-              </p>
-            </div>
-          </div>
+    <%= link_to business_path(business), style:"text-decoration: none" do  %>
+    <div class="card-subcategory-favorites">
+      <div class="card-subcategory-elements-favorites">
+        <% if business.photo.attached? %>
+        <%= cl_image_tag business.photo.key, width: 400, crop: :fill %>
+        <% else %>
+        <img src="https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5a33f2b431358e749fd321af%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D0%26cropX2%3D416%26cropY1%3D0%26cropY2%3D416" alt="humana">
         <% end %>
-      <% end %>
+        <div class="card-subcategory-infos-favorites">
+          <h2 class="underline-subcat"><%= business.name %></h2>
+          <p><%= business.description.truncate(100, separator: ' ') %></p>
+          <div style="text-align: right;">
+            <p>
+              <% if business.reviews.present? %>
+                <% ratings = [] %>
+                <% business.reviews.each do |review| %>
+                  <% ratings << review.rating %>
+              <% end %>
+              </p>
+              <p style='float: right;'>
+              <% @average = (ratings.reduce(:+) / ratings.size.to_f) %>
+              <% output = '' %>
+              <% if (1..5).include?(@average.floor) %>
+                <% @average.floor.times { output += "<i class='fas fa-star'></i>" } %>
+              <% end %>
+              <% if @average >= (@average.floor + 0.25) && @average <= (@average.floor + 0.75) && @average.to_i != 5 %>
+                <% output += "<i class='fas fa-star-half'></i>" %>
+              <% end %>
+                <%= output.html_safe %>
+              <%#= @average %>
+              <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+      </div>
+    <% end %>
+  <% end %>
     </div>
   </div>
 </div>
