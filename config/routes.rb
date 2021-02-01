@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :categories, only: [:index, :show] do
     resources :sub_categories, only: [:index]
   end
-  resources :businesses, only: [:index, :show, :new, :create] do
+  resources :businesses, only: [:index, :show, :new, :create, :edit, :destroy] do
     resources :reviews, only: [:create]
     resources :bookmarks, only: [:create]
   end

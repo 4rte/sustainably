@@ -1,45 +1,44 @@
- <div class="gradient-container"  >
+<div class="gradient-container">
   <%= render 'shared/navbar' %>
-    <% if params[:query].present? %>
-      <div id="map"
-      style="width: 350px; height: 350px; border-radius: 10px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
-      <% @businesses.each do |business| %>
-    <%= link_to business_path(business), style:"text-decoration: none" do  %>
-    <div class="card-subcategory" >
-      <div class="card-subcategory-elements">
-        <% if business.photo.attached? %>
-        <%= cl_image_tag business.photo.key, width: 400, crop: :fill %>
-        <% else %>
-        <img src="https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5a33f2b431358e749fd321af%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D0%26cropX2%3D416%26cropY1%3D0%26cropY2%3D416" alt="humana">
-        <% end %>
-        <div class="card-subcategory-infos">
-          <h2 class="underline-subcat"><%= business.name %></h2>
-          <p><%= business.description.truncate(100, separator: ' ') %></p>
-          <p style="text-align: right">
+  <% if params[:query].present? %>
+    <div id="map"
+    style="width: 350px; height: 350px; border-radius: 10px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+    <% @businesses.each do |business| %>
+      <%= link_to business_path(business), style:"text-decoration: none" do  %>
+      <div class="card-subcategory" >
+        <div class="card-subcategory-elements">
+          <% if business.photo.attached? %>
+            <%= cl_image_tag business.photo.key, width: 400, crop: :fill %>
+          <% else %>
+            <img src="https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5a33f2b431358e749fd321af%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D0%26cropX2%3D416%26cropY1%3D0%26cropY2%3D416" alt="humana">
+          <% end %>
+          <div class="card-subcategory-infos">
+            <h2 class="underline-subcat"><%= business.name %></h2>
+            <p><%= business.description.truncate(100, separator: ' ') %></p>
+            <p style="text-align: right">
             <% if business.reviews.present? %>
               <% ratings = [] %>
               <% business.reviews.each do |review| %>
-                <% ratings << review.rating %>
-            <% end %>
-            <% @average = (ratings.reduce(:+) / ratings.size.to_f) %>
-            <% output = '' %>
-            <% if (1..5).include?(@average.floor) %>
+              <% ratings << review.rating %>
+              <% end %>
+              <% @average = (ratings.reduce(:+) / ratings.size.to_f) %>
+              <% output = '' %>
+              <% if (1..5).include?(@average.floor) %>
               <% @average.floor.times { output += "<i class='fas fa-star'></i>" } %>
             <% end %>
             <% if @average >= (@average.floor + 0.25) && @average <= (@average.floor + 0.75) && @average.to_i != 5 %>
               <% output += "<i class='fas fa-star-half'></i>" %>
             <% end %>
-              <%= output.html_safe %>
-            <%#= @average %>
+            <%= output.html_safe %>
             <% end %>
-          </p>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-    <% end %>
+   <% end %>
   <% end %>
 
   <div id="footer-sticky" class="btn-container-back">
@@ -70,7 +69,7 @@
     </div>
   </div>
 </div>
-    <% else %>
+    <% elsif %>
 
 
     <div  class="header-subcategory">
@@ -163,5 +162,30 @@
     </div>
   </div>
 </div>
+
+<%# <% else %> %>
+<%# <h1>Listing Businesses</h1> %>
+
+  <%# <table> %>
+    <%# <thead> %>
+      <%# <tr> %>
+        <%# <th>Name</th> %>
+        <%# <th>Description</th> %>
+        <%# <th>Address</th> %>
+      <%# </tr> %>
+    <%# </thead> %>
+    <%# <tbody> %>
+      <%# <% @businesses.each do |business| %> %>
+        <%# <tr> %>
+          <%# <td><%= business.name %></td> %>
+          <%# <td><%= business.description %></td> %>
+          <%# <td><%= business.address %></td> %>
+          <%# <td><%= link_to 'Show', business %></td> %>
+          <%# <td><%= link_to 'Edit', edit_business_path(business) %></td> %>
+          <%# <td><%= link_to 'Destroy', business, method: :delete, data: {confirm: 'Are you sure?' } %></td> %>
+        <%# </tr> %>
+      <%# <% end %> %>
+    <%# </tbody> %>
+  <%# </table> %>
 
     <% end %>

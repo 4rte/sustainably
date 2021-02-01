@@ -34,6 +34,7 @@ const addMarkersToMap = (map, markers) => {
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
   markers.forEach(marker => bounds.extend([marker.lng, marker.lat], [marker.lng, marker.lat]));
+  console.log(markers);
   map.fitBounds(bounds, { padding: 70, maxZoom: 13 });
   map.setCenter([2.355, 48.8566]);
   var avglng = (markers.map(m => m.lng).reduce((a, b) => a + b, 0)) / markers.length;

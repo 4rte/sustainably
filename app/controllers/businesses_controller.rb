@@ -1,7 +1,7 @@
 class BusinessesController < ApplicationController
   skip_before_action :authenticate_user!
   def index
-    # raise
+    # byebug
     if params[:query].present?
       @businesses = Business.search_by_name(params[:query])
       # @businesses = Business.near(params[:query], 100)
@@ -13,7 +13,7 @@ class BusinessesController < ApplicationController
       image_url: helpers.asset_url('marker.svg')
      }
       end
-    else
+    elsif params[:category_id].present?
       @category = Category.find(params[:category_id])
       @sub_categories = @category.sub_categories
       # raise
@@ -21,21 +21,14 @@ class BusinessesController < ApplicationController
       @sub_categories.each do |sub_category|
         @businesses << sub_category.businesses.distinct # is array
       end
-      # raise
       @businesses = @businesses.flatten
       if params[:sub_category_id].present?
         @sub_category = SubCategory.find(params[:sub_category_id])
         @businesses = @businesses.select {|business| business.sub_categories.include?(@sub_category)}
       end
+    else
+      @businesses = Business.all
     end
-    # if params[:sub_category_id].present?
-    #   @sub_category = SubCategory.find(params[:sub_category_id])
-    #   # raise
-    #   @businesses = Business.joins(:business_sub_categories).where(business_sub_categories: { sub_category: @sub_category }).distinct
-    # else
-      # @businesses = Business.all
-      # raise
-    # end
   end
 
   def show
@@ -57,7 +50,6 @@ class BusinessesController < ApplicationController
   end
 
   def create
-    # raise
     if current_user.admin?
       @business = Business.new(business_params)
       # @sub_category = SubCategory.find(params[:business][:business_sub_categories][:sub_category_ids])
@@ -77,12 +69,42 @@ class BusinessesController < ApplicationController
     end
   end
 
-  def update
+  
+  def edit
+    if current_user.admin?
+      find_business
+    end
+  end
 
+  def update
+    if current_user.admin?
+      find_business
+      sub_categories = params.dig(:business, :sub_category_ids)
+      if @business.update(business_params)
+        sub_categories.each do |sub_category_id|
+          BusinessSubCategory.update(business: @business, sub_category_id: sub_category_id)
+        end
+        redirect_to @business, notice: "Changes were successfully saved"
+      else
+        render 'edit'
+      end
+    end
+  end
+  
+  def destroy
+    if current_user.admin?
+      find_business
+      @business.destroy
+      redirect_to categories_path, notice: "Business was successfully deleted"
+    end
   end
 
   private
 
+  def find_business
+    @business = Business.find(params[:id])
+  end
+  
   def business_params
     params.require(:business).permit(:name, :description, :address, :url, :photo, business_sub_category_attributes: [:sub_category_id, :business_sub_category_id],
       sub_category_ids: [] )

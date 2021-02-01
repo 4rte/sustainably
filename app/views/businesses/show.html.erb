@@ -11,6 +11,10 @@
           <% else %>
             <%= link_to '', bookmark_path(@bookmark), method: :delete, remote: true, class: "fas fa-heart", style: "color: #404040;margin-left: 8px; font-size: 1.5em;"%>
           <% end %>
+      <% if current_user.admin? %>
+        <%= link_to 'Delete', business_path(@business), method: :delete, remote: true %>
+        <%= link_to 'Edit', edit_business_path(@business) %>
+      <% end %>
         <% end %>
       </div>
     <p><%= @business.description %></p>
