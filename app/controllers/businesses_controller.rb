@@ -1,7 +1,6 @@
 class BusinessesController < ApplicationController
   skip_before_action :authenticate_user!
   def index
-    # byebug
     if params[:query].present?
       @businesses = Business.search_by_name(params[:query])
       # @businesses = Business.near(params[:query], 100)
@@ -36,14 +35,12 @@ class BusinessesController < ApplicationController
     @review = Review.new
     @user = current_user
     @bookmark = Bookmark.find_by(business: @business, user: @user)
-    # raise
     @marker = [{lat: @business.latitude,
     lng: @business.longitude}
     ]
   end
 
   def new
-    # raise
     if current_user.admin?
       @business = Business.new
     end
@@ -54,14 +51,14 @@ class BusinessesController < ApplicationController
       @business = Business.new(business_params)
       # @sub_category = SubCategory.find(params[:business][:business_sub_categories][:sub_category_ids])
       sub_categories = params.dig(:business, :sub_category_ids)
-      # raise
+
       # @business = Business.joins(:business_sub_categories).create_with(business_sub_categories: { sub_category: @sub_category })
-      # raise
+
       if @business.save
         sub_categories.each do |sub_category_id|
           BusinessSubCategory.create(business: @business, sub_category_id: sub_category_id)
         end
-        # raise
+  
         redirect_to @business, notice: "Business was successfully added"
       else
         render :new
